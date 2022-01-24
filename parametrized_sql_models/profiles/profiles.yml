@@ -1,0 +1,26 @@
+# For more information on how to configure this file, please see:
+# https://docs.getdbt.com/docs/profile
+test:
+  target: test
+  outputs:
+    test:
+      type: postgres
+      host: docker.local
+      user: "{{ env_var('POSTGRES_USER') }}"
+      password: "{{ env_var('POSTGRES_PASSWORD') }}"
+      port: 5432
+      threads: 1
+      dbname: postgres
+      schema: test
+prod:
+  target: prod
+  outputs:
+    prod:
+      type: postgres
+      host: docker.local
+      user: "{{ env_var('POSTGRES_USER') }}"
+      password: "{{ env_var('POSTGRES_PASSWORD') }}"
+      port: 5432
+      threads: 1
+      dbname: postgres
+      schema: prod

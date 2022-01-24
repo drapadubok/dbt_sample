@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: customer_counts
+    description: "A model for internal use"
+    columns:
+      - name: customer_id
+        description: "The primary key for this table"
+        tests:
+          - not_null
+      - name: app_version
+        description: "App version"
+        tests:
+          - not_null
+      - name: revenue_metric
+        description: "Something to tell about revenue"
+        tests:
+          - not_null
+      - name: event_type
+        description: "What actually happened"
+        tests:
+          - not_null

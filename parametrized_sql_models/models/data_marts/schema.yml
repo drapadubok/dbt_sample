@@ -1,0 +1,54 @@
+version: 2
+
+models:
+  - name: aggregate_mart
+    description: "A model with aggregated data for a customer"
+    columns:
+      - name: customer_id
+        description: "The primary key for this table"
+        tests:
+          - not_null
+          - unique_customer
+      - name: event_type
+        description: "What actually happened"
+        tests:
+          - not_null
+      - name: events_cnt
+        description: "Count of events"
+        tests:
+          - not_null
+      - name: revenue
+        description: "Sum of revenue"
+        tests:
+          - not_null
+          - positive_revenue
+      - name: mart_version
+        description: "Version of this mart"
+        tests:
+          - not_null
+
+  - name: all_data_mart
+    description: "A model with all data for a customer"
+    columns:
+      - name: customer_id
+        description: "The primary key for this table"
+        tests:
+          - not_null
+          - unique_customer
+      - name: app_version
+        description: "App version"
+        tests:
+          - not_null
+      - name: revenue_metric
+        description: "Something to tell about revenue"
+        tests:
+          - not_null
+          - positive_revenue
+      - name: event_type
+        description: "What actually happened"
+        tests:
+          - not_null
+      - name: mart_version
+        description: "Version of this mart"
+        tests:
+          - not_null
